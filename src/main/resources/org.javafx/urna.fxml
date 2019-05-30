@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="499.0" prefWidth="1031.0" style="-fx-background-color: #d8d2c4#d8d2c4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.javafx.UrnaController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="444.0" prefWidth="819.0" VBox.vgrow="ALWAYS">
+      <children>
+            <GridPane layoutX="662.0" layoutY="111.0" prefHeight="306.0" prefWidth="327.0" style="-fx-background-color: #36312e#36312e; -fx-border-color: black;">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="80.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="80.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="80.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="80.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: #2d2824#2d2824; -fx-border-width: 4; -fx-border-color: black;" text="1" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button fx:id="btnBranco" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="35.0" prefWidth="90.0" text="BRANCO" GridPane.rowIndex="4">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button fx:id="btnCorrige" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#corrigir" prefHeight="35.0" prefWidth="90.0" style="-fx-background-color: #f1974f#f1974f;" text="CORRIGE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button fx:id="btnConfirmar" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="90.0" style="-fx-background-color: #63c373#63c373;" text="CONFIRMA" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: #2d2824#2d2824; -fx-border-width: 4; -fx-border-color: black;" text="2" textFill="WHITE" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: #2d2824#2d2824; -fx-border-width: 4; -fx-border-color: black;" text="3" textFill="WHITE" GridPane.columnIndex="2">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: #2d2824#2d2824; -fx-border-width: 4; -fx-border-color: black;" text="4" textFill="WHITE" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: #2d2824#2d2824; -fx-border-width: 4; -fx-border-color: black;" text="5" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: #2d2824#2d2824; -fx-border-width: 4; -fx-border-color: black;" text="6" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: #2d2824#2d2824; -fx-border-width: 4; -fx-border-color: black;" text="7" textFill="WHITE" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: #2d2824#2d2824; -fx-border-width: 4; -fx-border-color: black;" text="8" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: #2d2824#2d2824; -fx-border-width: 4; -fx-border-color: black;" text="9" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: #2d2824#2d2824; -fx-border-width: 4; -fx-border-color: black;" text="0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </GridPane>
+            <Pane layoutX="14.0" layoutY="36.0" prefHeight="357.0" prefWidth="617.0" style="-fx-background-color: #d4d4d4#d4d4d4; -fx-border-color: black;">
+               <children>
+                  <Label layoutX="109.0" layoutY="58.0" prefHeight="29.0" prefWidth="222.0" text="Deputado Estadual">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tfVotacao" editable="false" layoutX="86.0" layoutY="114.0" prefHeight="54.0" prefWidth="120.0">
+                     <font>
+                        <Font size="28.0" />
+                     </font></TextField>
+                  <ImageView fitHeight="151.0" fitWidth="142.0" layoutX="475.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="-1.0" layoutY="129.0" text="Número:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="2.0" layoutY="179.0" text="Nome:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="2.0" layoutY="242.0" text="Partido:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="2.0" layoutY="14.0" text="SEU VOTO PARA">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
