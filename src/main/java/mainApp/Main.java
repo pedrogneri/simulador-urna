@@ -12,7 +12,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/org.javafx/urna.fxml"));
 
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("/org.javafx/styles.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/org.javafx/css/styles.css").toExternalForm());
 
         stage.setTitle("Simulador de Urna Eletrônica");
         stage.setScene(scene);
