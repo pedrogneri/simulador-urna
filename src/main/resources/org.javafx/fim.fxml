@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane prefHeight="360.0" prefWidth="620.0" style="-fx-background-color: #d4d4d4; -fx-border-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" layoutX="115.0" layoutY="57.0" prefHeight="247.0" prefWidth="391.0" text="FIM">
+         <font>
+            <Font size="200.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

@@ -16,6 +16,7 @@ public class Main extends Application {
 
         stage.setTitle("Simulador de Urna Eletrônica");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 

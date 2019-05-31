@@ -7,17 +7,18 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="499.0" prefWidth="1031.0" style="-fx-background-color: #d8d2c4#d8d2c4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.javafx.UrnaController">
+<VBox prefHeight="500.0" prefWidth="1030.0" style="-fx-background-color: #d8d2c4#d8d2c4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.javafx.UrnaController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -74,7 +75,7 @@
                   <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: #2d2824#2d2824; -fx-border-width: 4; -fx-border-color: black;" text="1" textFill="WHITE">
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: #2d2824#2d2824; -fx-border-width: 4; -fx-border-color: black;" styleClass="btnNum" stylesheets="@styles.css" text="1" textFill="WHITE">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -89,7 +90,7 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
-                  <Button fx:id="btnConfirmar" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="90.0" style="-fx-background-color: #63c373#63c373;" text="CONFIRMA" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                  <Button fx:id="btnConfirmar" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#confirmar" prefHeight="80.0" prefWidth="90.0" style="-fx-background-color: #63c373#63c373;" text="CONFIRMA" GridPane.columnIndex="2" GridPane.rowIndex="4">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
@@ -167,40 +168,26 @@
                   </Button>
                </children>
             </GridPane>
-            <Pane layoutX="14.0" layoutY="36.0" prefHeight="357.0" prefWidth="617.0" style="-fx-background-color: #d4d4d4#d4d4d4; -fx-border-color: black;">
+            <Pane layoutX="661.0" prefHeight="113.0" prefWidth="327.0" style="-fx-background-color: #f2eee5#f2eee5; -fx-border-color: black;">
                <children>
-                  <Label layoutX="109.0" layoutY="58.0" prefHeight="29.0" prefWidth="222.0" text="Deputado Estadual">
+                  <ImageView fitHeight="93.0" fitWidth="111.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/brasao.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="164.0" layoutY="14.0" text="JUSTIÇA">
                      <font>
-                        <Font size="24.0" />
+                        <Font size="32.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tfVotacao" editable="false" layoutX="86.0" layoutY="114.0" prefHeight="54.0" prefWidth="120.0">
+                  <Label layoutX="142.0" layoutY="57.0" text="ELEITORAL">
                      <font>
-                        <Font size="28.0" />
-                     </font></TextField>
-                  <ImageView fitHeight="151.0" fitWidth="142.0" layoutX="475.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label layoutX="-1.0" layoutY="129.0" text="Número:">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="2.0" layoutY="179.0" text="Nome:">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="2.0" layoutY="242.0" text="Partido:">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="2.0" layoutY="14.0" text="SEU VOTO PARA">
-                     <font>
-                        <Font size="18.0" />
+                        <Font size="32.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
+            <HBox fx:id="hbTela" layoutX="21.0" layoutY="41.0" prefHeight="360.0" prefWidth="620.0" />
       </children>
     </AnchorPane>
   </children>
