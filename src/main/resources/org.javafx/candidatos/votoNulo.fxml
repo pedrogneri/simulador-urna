@@ -5,7 +5,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="165.0" prefWidth="390.0" style="-fx-background-color: #d4d4d4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="165.0" prefWidth="390.0" style="-fx-background-color: #d4d4d4;"  xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
    <children>
       <Label layoutY="6.0" text="NÚMERO ERRADO" AnchorPane.leftAnchor="1.0">
          <font>

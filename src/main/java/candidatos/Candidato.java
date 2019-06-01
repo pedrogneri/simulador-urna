@@ -39,7 +39,6 @@ public abstract class Candidato {
 
     public void votar(){
         setVotos(getVotos()+1);
-        listar();
     }
 
     public void calcularPercentual(int votosTotais){

@@ -7,11 +7,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class UrnaController {
     // Deputados
@@ -37,7 +38,7 @@ public class UrnaController {
     private static List<Candidato> governadores = Arrays.asList(gov1, gov2, gov3);
     private static List<Candidato> presidentes = Arrays.asList(pre1, pre2, pre3);
 
-    private Candidato candidatoEscolhido;
+    static Candidato candidatoEscolhido;
     private List<Candidato> listaCandidatos;
     private int limiteNum;
     private String arquivoTela;
@@ -77,7 +78,7 @@ public class UrnaController {
     }
 
     @FXML
-    protected void votarBranco() throws Exception{
+    protected void votarBranco() throws Exception {
         limpar();
         paneCandidato.getChildren().add(FXMLLoader.load(getClass().getResource(
                 "/org.javafx/candidatos/votoBranco.fxml")));
@@ -87,6 +88,19 @@ public class UrnaController {
 
     @FXML
     protected void confirmar() {
+        if(paneCandidato.getChildren().size() != 0){
+            alterarCargo();
+            if(candidatoEscolhido != null) {
+                candidatoEscolhido.votar();
+                System.out.println(candidatoEscolhido.getNumero() + " | " + candidatoEscolhido.getVotos()); // teste
+            }
+        } else if (telaFim.isVisible())
+            alterarCargo();
+
+        candidatoEscolhido = null;
+    }
+
+    private void alterarCargo(){
         switch (lblCargo.getText()){
             case "Deputado Estadual":
                 configurarTela("Senador", "senador.fxml", senadores, 3);
@@ -122,7 +136,7 @@ public class UrnaController {
         try{
             paneCandidato.getChildren().add(FXMLLoader.load(getClass().getResource(
                     "/org.javafx/candidatos/" + arquivo)));
-        }catch (Exception e){
+        } catch (Exception e){
             e.printStackTrace();
         }
         lblVoto.setVisible(true);

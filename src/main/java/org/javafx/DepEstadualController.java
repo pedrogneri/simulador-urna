@@ -1,23 +1,16 @@
 package org.javafx;
 
-import candidatos.Candidato;
 import candidatos.DeputadoEstadual;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class DepEstadualController {
-    private List<Candidato> deputados;
+    public Label lblNome;
+    public Label lblPartido;
 
-    @FXML
-    private Label lblNome;
-    @FXML
-    private Label lblPartido;
-
-    @FXML
-    public void initialize() throws Exception {
-
+    public void initialize() {
+        DeputadoEstadual deputadoEscolhido = (DeputadoEstadual) UrnaController.candidatoEscolhido;
+        lblNome.setText(deputadoEscolhido.getNome());
+        lblPartido.setText(deputadoEscolhido.getPartido());
     }
 }
