@@ -1,7 +1,6 @@
 package org.javafx;
 
 import candidatos.DeputadoEstadual;
-import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 public class DepEstadualController {

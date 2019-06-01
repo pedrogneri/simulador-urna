@@ -88,7 +88,7 @@
                         <Font size="28.0" />
                      </font>
                   </TextField>
-                  <Label fx:id="lblCargo" layoutX="107.0" layoutY="44.0" prefHeight="29.0" prefWidth="245.0" text="&lt;CANDIDATO&gt;">
+                  <Label fx:id="lblCargo" layoutX="108.0" layoutY="38.0" prefHeight="29.0" prefWidth="245.0" text="&lt;CANDIDATO&gt;" AnchorPane.leftAnchor="110.0">
                      <font>
                         <Font size="24.0" />
                      </font>
