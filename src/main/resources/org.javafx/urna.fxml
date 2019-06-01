@@ -93,17 +93,17 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="1.0" layoutY="89.0" text="Número:" AnchorPane.leftAnchor="1.0">
+                  <Label fx:id="lblNumero" layoutX="1.0" layoutY="89.0" text="Número:" visible="false" AnchorPane.leftAnchor="1.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label text="SEU VOTO PARA" AnchorPane.leftAnchor="1.0" AnchorPane.topAnchor="0.0">
+                  <Label fx:id="lblVoto" text="SEU VOTO PARA" visible="false" AnchorPane.leftAnchor="1.0" AnchorPane.topAnchor="0.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <AnchorPane layoutX="1.0" layoutY="295.0">
+                  <AnchorPane fx:id="paneTutorial" layoutX="1.0" layoutY="295.0" visible="false">
                      <children>
                         <Separator prefHeight="2.0" prefWidth="620.0" style="-fx-background-color: black;" />
                         <Label layoutX="7.0" layoutY="7.0" text="Aperte a tecla:" AnchorPane.leftAnchor="1.0" />
@@ -125,7 +125,7 @@
             </AnchorPane>
             <Pane layoutX="661.0" layoutY="113.0" prefHeight="315.0" prefWidth="328.0" style="-fx-background-color: #36312e; -fx-border-color: black;">
                <children>
-                  <Button fx:id="btnBranco" alignment="TOP_CENTER" layoutX="14.0" layoutY="251.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="BRANCO">
+                  <Button fx:id="btnBranco" alignment="TOP_CENTER" layoutX="14.0" layoutY="251.0" mnemonicParsing="false" onAction="#votarBranco" prefHeight="40.0" prefWidth="90.0" text="BRANCO">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

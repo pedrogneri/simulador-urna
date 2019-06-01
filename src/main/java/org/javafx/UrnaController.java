@@ -38,9 +38,9 @@ public class UrnaController {
     private static List<Candidato> presidentes = Arrays.asList(pre1, pre2, pre3);
 
     private Candidato candidatoEscolhido;
-    private List<Candidato> candidatosAtuais;
-    private int limite;
-    private String telaAtual;
+    private List<Candidato> listaCandidatos;
+    private int limiteNum;
+    private String arquivoTela;
 
     public Button btnConfirmar;
     public Button btnBranco;
@@ -49,11 +49,13 @@ public class UrnaController {
     public Pane paneCandidato;
     public Label lblCargo;
     public Pane telaFim;
+    public Label lblVoto;
+    public AnchorPane paneTutorial;
+    public Label lblNumero;
 
     @FXML
-    public void initialize() throws Exception {
-        lblCargo.setText("Deputado Estadual");
-        candidatosAtuais = deputados; limite = 5; telaAtual = "depEstadual.fxml";
+    public void initialize() {
+        configurarTela("Deputado Estadual", "depEstadual.fxml", deputados, 5);
     }
 
     @FXML
@@ -61,7 +63,7 @@ public class UrnaController {
         Button btn = (Button) event.getSource();
         String num = btn.getText();
 
-        alterarTexto(num, candidatosAtuais, limite);
+        alterarTexto(num, listaCandidatos, limiteNum);
     }
 
     private void alterarTexto(String num, List<Candidato> candidatos, int limite){
@@ -75,19 +77,25 @@ public class UrnaController {
     }
 
     @FXML
+    protected void votarBranco() throws Exception{
+        limpar();
+        paneCandidato.getChildren().add(FXMLLoader.load(getClass().getResource(
+                "/org.javafx/candidatos/votoBranco.fxml")));
+        lblVoto.setVisible(true);
+        paneTutorial.setVisible(true);
+    }
+
+    @FXML
     protected void confirmar() {
         switch (lblCargo.getText()){
             case "Deputado Estadual":
-                candidatosAtuais = senadores; limite = 3; telaAtual = "senador.fxml";
-                lblCargo.setText("Senador");
+                configurarTela("Senador", "senador.fxml", senadores, 3);
                 break;
             case "Senador":
-                candidatosAtuais = governadores; limite = 2; telaAtual = "governador.fxml";
-                lblCargo.setText("Governador");
+                configurarTela("Governador", "governador.fxml", governadores, 2);
                 break;
             case "Governador":
-                candidatosAtuais = presidentes; limite = 2; telaAtual = "presidente.fxml";
-                lblCargo.setText("Presidente");
+                configurarTela("Presidente", "presidente.fxml", presidentes, 2);
                 break;
             case "Presidente":
                 telaFim.setVisible(true);
@@ -95,22 +103,21 @@ public class UrnaController {
                 break;
             case "FIM":
                 telaFim.setVisible(false);
-                lblCargo.setText("Deputado Estadual");
-                candidatosAtuais = deputados; limite = 5; telaAtual = "depEstadual.fxml";
+                configurarTela("Deputado Estadual", "depEstadual.fxml", deputados, 5);
                 break;
         }
         limpar();
     }
 
-    private void validacaoNumero(List<Candidato> candidatos) {
+    private Candidato validacaoNumero(List<Candidato> candidatos) {
         int numeroDigitado = Integer.parseInt(tfVotacao.getText());
-        candidatoEscolhido = candidatos.stream().filter(candidato -> candidato.getNumero() == numeroDigitado)
+        return candidatos.stream().filter(candidato -> candidato.getNumero() == numeroDigitado)
                 .findFirst().orElse(null);
     }
 
     private void procurarCandidato(List<Candidato> candidatos) {
-        validacaoNumero(candidatos);
-        String arquivo =  candidatoEscolhido != null ? telaAtual : "votoNulo.fxml";
+        candidatoEscolhido = validacaoNumero(candidatos);
+        String arquivo = candidatoEscolhido != null ? arquivoTela : "votoNulo.fxml";
 
         try{
             paneCandidato.getChildren().add(FXMLLoader.load(getClass().getResource(
@@ -118,10 +125,23 @@ public class UrnaController {
         }catch (Exception e){
             e.printStackTrace();
         }
+        lblVoto.setVisible(true);
+        paneTutorial.setVisible(true);
+        lblNumero.setVisible(true);
     }
 
     private void limpar(){
         tfVotacao.clear();
         paneCandidato.getChildren().clear();
+        lblVoto.setVisible(false);
+        paneTutorial.setVisible(false);
+        lblNumero.setVisible(false);
+    }
+
+    private void configurarTela(String cargo, String nomeArquivo, List<Candidato> candidatos, int limite) {
+        lblCargo.setText(cargo);
+        arquivoTela = nomeArquivo;
+        listaCandidatos = candidatos;
+        limiteNum = limite;
     }
 }
