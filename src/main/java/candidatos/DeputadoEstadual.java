@@ -5,7 +5,7 @@ import javax.swing.*;
 public class DeputadoEstadual extends Candidato{
     private String estado;
 
-    DeputadoEstadual(String nome, String partido, int numero, String estado, int votos, Double percentual) {
+    public DeputadoEstadual(String nome, String partido, int numero, String estado, int votos, Double percentual) {
         super(nome, partido, numero, votos, percentual);
         this.estado = estado;
     }

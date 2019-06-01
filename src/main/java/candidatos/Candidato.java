@@ -1,6 +1,6 @@
 package candidatos;
 
-abstract class Candidato {
+public abstract class Candidato {
     private String nome;
     private String partido;
     private int numero;
@@ -37,12 +37,12 @@ abstract class Candidato {
         this.percentual = percentual;
     }
 
-    void votar(){
+    public void votar(){
         setVotos(getVotos()+1);
         listar();
     }
 
-    void calcularPercentual(int votosTotais){
+    public void calcularPercentual(int votosTotais){
         setPercentual(getVotos() * 100 / (double) votosTotais);
     }
 
