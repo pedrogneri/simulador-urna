@@ -3,23 +3,24 @@ package apllication;
 import java.io.*;
 
 public enum LeitorJson {
-    DEPUTADO("/JsonFiles/deputados.json"),
-    SENADOR("/JsonFiles/senadores.json"),
-    GOVERNADOR("/JsonFiles/governadores.json"),
-    PRESIDENTE("/JsonFiles/presidentes.json");
+    DEPUTADO("deputados.json"),
+    SENADOR("senadores.json"),
+    GOVERNADOR("governadores.json"),
+    PRESIDENTE("presidentes.json");
 
-    private String resourceURL;
+    private String path;
+    LeitorJson(String path){
+        this.path = path;
+    }
 
-    LeitorJson(String resourceURL){
-        this.resourceURL = resourceURL;
+    private String getPath(){
+        return "./src/JsonFiles/" + this.path;
     }
 
     public String lerArquivo(){
         String json = "";
-
         try{
-            BufferedReader br = new BufferedReader(new FileReader(getClass().getResource(resourceURL).getFile()));
-
+            BufferedReader br = new BufferedReader(new FileReader(getPath()));
             json = br.readLine();
         } catch (Exception e) {
             e.printStackTrace();
@@ -29,10 +30,8 @@ public enum LeitorJson {
 
     public void atualizarArquivo(String json){
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter(getClass().getResource(resourceURL).getFile(), false));
-
+            BufferedWriter bw = new BufferedWriter(new FileWriter(getPath()));
             bw.write(json);
-
             bw.flush();
             bw.close();
         } catch (IOException e) {

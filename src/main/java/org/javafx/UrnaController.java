@@ -84,8 +84,8 @@ public class UrnaController {
                 System.out.println(candidatoEscolhido.getNumero() + " | " + candidatoEscolhido.getVotos()); // teste
             }
         } else if (telaFim.isVisible()){
-            atualizarArquivosJSON();
             alterarCargo();
+            atualizarArquivosJSON();
         }
         candidatoEscolhido = null;
     }
@@ -155,5 +155,6 @@ public class UrnaController {
         GOVERNADOR.atualizarArquivo(new Gson().toJson(governadores));
         PRESIDENTE.atualizarArquivo(new Gson().toJson(presidentes));
     }
-
 }
+
+
