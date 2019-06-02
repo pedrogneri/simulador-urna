@@ -1,4 +1,4 @@
-package org.javafx;
+package javafxControllers;
 
 import candidatos.Senador;
 import javafx.scene.control.Label;

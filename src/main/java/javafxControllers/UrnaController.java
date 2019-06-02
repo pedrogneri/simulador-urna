@@ -1,4 +1,4 @@
-package org.javafx;
+package javafxControllers;
 
 import candidatos.*;
 import com.google.gson.Gson;
@@ -10,8 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
+import javafx.scene.media.AudioClip;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static apllication.LeitorJson.*;
@@ -27,6 +27,8 @@ public class UrnaController {
     public Pane paneCandidato;
     public AnchorPane paneTutorial;
     public TextField tfVotacao;
+    private AudioClip somFim;
+    private AudioClip somVoto;
 
     private static List<Candidato> deputados;
     private static List<Candidato> senadores;
@@ -44,6 +46,8 @@ public class UrnaController {
         senadores = new Gson().fromJson(SENADOR.lerArquivo(), new TypeToken<List<Senador>>(){}.getType());
         governadores =  new Gson().fromJson(GOVERNADOR.lerArquivo(), new TypeToken<List<Governador>>(){}.getType());
         presidentes =  new Gson().fromJson(PRESIDENTE.lerArquivo(), new TypeToken<List<Presidente>>(){}.getType());
+        somFim = new AudioClip(getClass().getResource("../sons/som_fim.mp3").toString());
+        somVoto = new AudioClip(getClass().getResource("../sons/som_voto.mp3").toString());
 
         configurarTela("Deputado Estadual", "depEstadual.fxml", deputados, 5);
     }
@@ -70,7 +74,7 @@ public class UrnaController {
     protected void votarBranco() throws Exception {
         limpar();
         paneCandidato.getChildren().add(FXMLLoader.load(getClass().getResource(
-                "/org.javafx/candidatos/votoBranco.fxml")));
+                "/javafxViews/candidatos/votoBranco.fxml")));
         lblVoto.setVisible(true);
         paneTutorial.setVisible(true);
     }
@@ -78,12 +82,13 @@ public class UrnaController {
     @FXML
     protected void confirmar() {
         if(paneCandidato.getChildren().size() != 0){
+            somVoto.play();
             alterarCargo();
             if(candidatoEscolhido != null) {
                 candidatoEscolhido.votar();
                 System.out.println(candidatoEscolhido.getNumero() + " | " + candidatoEscolhido.getVotos()); // teste
             }
-        } else if (telaFim.isVisible()){
+        } else if (telaFim.isVisible() && !somFim.isPlaying()){
             alterarCargo();
             atualizarArquivosJSON();
         }
@@ -102,6 +107,7 @@ public class UrnaController {
                 configurarTela("Presidente", "presidente.fxml", presidentes, 2);
                 break;
             case "Presidente":
+                somFim.play();
                 telaFim.setVisible(true);
                 lblCargo.setText("FIM");
                 break;
@@ -125,7 +131,7 @@ public class UrnaController {
 
         try{
             paneCandidato.getChildren().add(FXMLLoader.load(getClass().getResource(
-                    "/org.javafx/candidatos/" + arquivo)));
+                    "/javafxViews/candidatos/" + arquivo)));
         } catch (Exception e){
             e.printStackTrace();
         }

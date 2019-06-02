@@ -1,0 +1,21 @@
+.btnNum {
+    -fx-background-color: #2d2824;
+    -fx-border-width: 3;
+    -fx-border-color: black;
+}
+
+.btnNum:pressed {
+    -fx-border-width: 2;
+}
+
+.btnConfirma {
+    -fx-background-color: #63c373;
+}
+
+.btnCorrige {
+    -fx-background-color: #f1974f;
+}
+
+.btnBranco {
+    -fx-background-color: #f2eee5;
+}
