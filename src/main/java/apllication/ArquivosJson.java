@@ -1,15 +1,16 @@
 package apllication;
 
+import javax.swing.*;
 import java.io.*;
 
-public enum LeitorJson {
+public enum ArquivosJson {
     DEPUTADO("deputados.json"),
     SENADOR("senadores.json"),
     GOVERNADOR("governadores.json"),
     PRESIDENTE("presidentes.json");
 
     private String path;
-    LeitorJson(String path){
+    ArquivosJson(String path){
         this.path = path;
     }
 
@@ -17,12 +18,12 @@ public enum LeitorJson {
         return "./src/JsonFiles/" + this.path;
     }
 
-    public String lerArquivo(){
+    public String lerArquivo() {
         String json = "";
         try{
             BufferedReader br = new BufferedReader(new FileReader(getPath()));
             json = br.readLine();
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return json;
@@ -34,9 +35,7 @@ public enum LeitorJson {
             bw.write(json);
             bw.flush();
             bw.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        } catch (IOException e) { e.printStackTrace(); }
     }
 
 }

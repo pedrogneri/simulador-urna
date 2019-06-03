@@ -12,9 +12,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.media.AudioClip;
 
+import java.io.IOException;
 import java.util.List;
 
-import static apllication.LeitorJson.*;
+import static apllication.ArquivosJson.*;
 
 public class UrnaController {
     public Button btnConfirmar;
@@ -44,25 +45,22 @@ public class UrnaController {
     public void initialize() {
         deputados = new Gson().fromJson(DEPUTADO.lerArquivo(), new TypeToken<List<DeputadoEstadual>>(){}.getType());
         senadores = new Gson().fromJson(SENADOR.lerArquivo(), new TypeToken<List<Senador>>(){}.getType());
-        governadores =  new Gson().fromJson(GOVERNADOR.lerArquivo(), new TypeToken<List<Governador>>(){}.getType());
-        presidentes =  new Gson().fromJson(PRESIDENTE.lerArquivo(), new TypeToken<List<Presidente>>(){}.getType());
+        governadores = new Gson().fromJson(GOVERNADOR.lerArquivo(), new TypeToken<List<Governador>>(){}.getType());
+        presidentes = new Gson().fromJson(PRESIDENTE.lerArquivo(), new TypeToken<List<Presidente>>(){}.getType());
+
         somFim = new AudioClip(getClass().getResource("../sons/som_fim.mp3").toString());
         somVoto = new AudioClip(getClass().getResource("../sons/som_voto.mp3").toString());
 
-        configurarTela("Deputado Estadual", "depEstadual.fxml", deputados, 5);
+        alterarCargo();
     }
 
     @FXML
     protected void digitarNumero(ActionEvent event){
         Button btn = (Button) event.getSource();
-        String num = btn.getText();
+        String num = tfVotacao.getText().concat(btn.getText());
 
-        alterarTexto(num, listaCandidatos, limiteNum);
-    }
-
-    private void alterarTexto(String num, List<Candidato> candidatos, int limite){
-        if(tfVotacao.getLength() < limite) tfVotacao.setText(tfVotacao.getText().concat(num));
-        if(tfVotacao.getLength() == limite) procurarCandidato(candidatos);
+        if(tfVotacao.getLength() < limiteNum) tfVotacao.setText(num);
+        if(tfVotacao.getLength() == limiteNum) procurarCandidato();
     }
 
     @FXML
@@ -71,24 +69,22 @@ public class UrnaController {
     }
 
     @FXML
-    protected void votarBranco() throws Exception {
+    protected void votarBranco() {
         limpar();
-        paneCandidato.getChildren().add(FXMLLoader.load(getClass().getResource(
-                "/javafxViews/candidatos/votoBranco.fxml")));
+        carregarView("votoBranco.fxml");
         lblVoto.setVisible(true);
         paneTutorial.setVisible(true);
     }
 
     @FXML
     protected void confirmar() {
-        if(paneCandidato.getChildren().size() != 0){
+        boolean candidatoFoiEscolhido = paneCandidato.getChildren().size() != 0;
+        if(candidatoFoiEscolhido){
+            if(candidatoEscolhido != null)
+                candidatoEscolhido.votar();
             somVoto.play();
             alterarCargo();
-            if(candidatoEscolhido != null) {
-                candidatoEscolhido.votar();
-                System.out.println(candidatoEscolhido.getNumero() + " | " + candidatoEscolhido.getVotos()); // teste
-            }
-        } else if (telaFim.isVisible() && !somFim.isPlaying()){
+        } else if (telaFim.isVisible()){
             alterarCargo();
             atualizarArquivosJSON();
         }
@@ -111,7 +107,7 @@ public class UrnaController {
                 telaFim.setVisible(true);
                 lblCargo.setText("FIM");
                 break;
-            case "FIM":
+            default:
                 telaFim.setVisible(false);
                 configurarTela("Deputado Estadual", "depEstadual.fxml", deputados, 5);
                 break;
@@ -119,22 +115,25 @@ public class UrnaController {
         limpar();
     }
 
-    private Candidato validacaoNumero(List<Candidato> candidatos) {
+    private void carregarView(String nomeArquivo){
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("/javafxViews/candidatos/" + nomeArquivo));
+            paneCandidato.getChildren().add(pane);
+        } catch (IOException e){ e.printStackTrace(); }
+    }
+
+    private Candidato validacaoNumero() {
         int numeroDigitado = Integer.parseInt(tfVotacao.getText());
-        return candidatos.stream().filter(candidato -> candidato.getNumero() == numeroDigitado)
+        return listaCandidatos.stream().filter(candidato -> candidato.getNumero() == numeroDigitado)
                 .findFirst().orElse(null);
     }
 
-    private void procurarCandidato(List<Candidato> candidatos) {
-        candidatoEscolhido = validacaoNumero(candidatos);
-        String arquivo = candidatoEscolhido != null ? arquivoTela : "votoNulo.fxml";
-
+    private void procurarCandidato() {
+        candidatoEscolhido = validacaoNumero();
         try{
-            paneCandidato.getChildren().add(FXMLLoader.load(getClass().getResource(
-                    "/javafxViews/candidatos/" + arquivo)));
-        } catch (Exception e){
-            e.printStackTrace();
-        }
+            carregarView(candidatoEscolhido != null ? arquivoTela : "votoNulo.fxml");
+        } catch (Exception e){ e.printStackTrace(); }
+
         lblVoto.setVisible(true);
         paneTutorial.setVisible(true);
         lblNumero.setVisible(true);
@@ -155,7 +154,7 @@ public class UrnaController {
         limiteNum = limite;
     }
 
-    private void atualizarArquivosJSON(){
+    private void atualizarArquivosJSON() {
         DEPUTADO.atualizarArquivo(new Gson().toJson(deputados));
         SENADOR.atualizarArquivo(new Gson().toJson(senadores));
         GOVERNADOR.atualizarArquivo(new Gson().toJson(governadores));

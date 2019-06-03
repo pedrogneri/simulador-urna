@@ -19,3 +19,8 @@
 .btnBranco {
     -fx-background-color: #f2eee5;
 }
+
+.paneTelaUrna {
+    -fx-background-color: #d4d4d4;
+    -fx-border-color: black;
+}

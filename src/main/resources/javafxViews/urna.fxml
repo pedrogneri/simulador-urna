@@ -81,7 +81,7 @@
                   </Label>
                </children>
             </Pane>
-            <AnchorPane layoutX="22.0" layoutY="42.0" prefHeight="360.0" prefWidth="620.0" style="-fx-background-color: #d4d4d4; -fx-border-color: black;">
+            <AnchorPane layoutX="22.0" layoutY="42.0" prefHeight="360.0" prefWidth="620.0" style="-fx-background-color: #d4d4d4; -fx-border-color: black;" styleClass="paneTelaUrna">
                <children>
                   <TextField fx:id="tfVotacao" editable="false" layoutX="85.0" layoutY="73.0" mouseTransparent="true" prefHeight="55.0" prefWidth="128.0" style="-fx-background-color: #d4d4d4;">
                      <font>
