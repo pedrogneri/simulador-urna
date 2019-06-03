@@ -9,10 +9,10 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/javafxViews/urna.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/views/urna.fxml"));
 
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("/javafxViews/css/styles.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/css/styles.css").toExternalForm());
 
         stage.setTitle("Simulador de Urna Eletrônica");
         stage.setScene(scene);

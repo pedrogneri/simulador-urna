@@ -1,4 +1,4 @@
-package candidatos;
+package models;
 
 import javax.swing.*;
 
@@ -18,17 +18,4 @@ public class Senador extends Candidato{
     public String getNomeSuplente2() {
         return nomeSuplente2;
     }
-
-    @Override
-    public void listar(){
-        JOptionPane.showMessageDialog(null,
-                "Cargo: Senador" +
-                        "\nNome: " + getNome() +
-                        "\nPartido: " + getPartido() +
-                        "\nNumero: " + getNumero() +
-                        "\nPrimeiro Suplente: " + getNomeSuplente1() +
-                        "\nSegundo Suplente: " + getNomeSuplente2(),
-                "Senador", -1);
-    }
-
 }

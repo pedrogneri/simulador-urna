@@ -1,4 +1,4 @@
-package candidatos;
+package models;
 
 import javax.swing.*;
 
@@ -22,19 +22,6 @@ public class Governador extends Candidato{
     }
     public String getEstado() {
         return estado;
-    }
-
-    @Override
-    public void listar() {
-        JOptionPane.showMessageDialog(null,
-                "Cargo: Governador" +
-                        "\nNome: " + getNome() +
-                        "\nPartido: " + getPartido() +
-                        "\nVice-governador: " + getNomeVice() +
-                        "\nPartido do vice: " + getPartidoVice() +
-                        "\nNumero: " + getNumero() +
-                        "\nEstado: " + getEstado(),
-                "Governador", -1);
     }
 }
 

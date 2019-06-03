@@ -1,4 +1,4 @@
-package candidatos;
+package models;
 
 public abstract class Candidato {
     private String nome;
@@ -44,7 +44,5 @@ public abstract class Candidato {
     public void calcularPercentual(int votosTotais){
         setPercentual(getVotos() * 100 / (double) votosTotais);
     }
-
-    abstract void listar();
 }
 

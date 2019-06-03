@@ -1,6 +1,6 @@
-package javafxControllers;
+package controllers;
 
-import candidatos.DeputadoEstadual;
+import models.DeputadoEstadual;
 import javafx.scene.control.Label;
 
 public class DepEstadualController {

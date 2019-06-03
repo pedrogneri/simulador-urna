@@ -1,4 +1,4 @@
-package candidatos;
+package models;
 
 import javax.swing.*;
 
@@ -17,17 +17,5 @@ public class Presidente extends Candidato {
     }
     public String getPartidoVice() {
         return partidoVice;
-    }
-
-    @Override
-    public void listar() {
-        JOptionPane.showMessageDialog(null,
-                "Cargo: Presidente" +
-                        "\nNome: " + getNome() +
-                        "\nPartido: " + getPartido() +
-                        "\nVice-presidente: " + getNomeVice() +
-                        "\nPartido do vice: " + getPartidoVice() +
-                        "\nNumero: " + getNumero(),
-                "Presidente", -1);
     }
 }

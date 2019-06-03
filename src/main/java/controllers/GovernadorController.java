@@ -1,6 +1,6 @@
-package javafxControllers;
+package controllers;
 
-import candidatos.Governador;
+import models.Governador;
 import javafx.scene.control.Label;
 
 public class GovernadorController {

@@ -1,6 +1,6 @@
-package javafxControllers;
+package controllers;
 
-import candidatos.*;
+import models.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import javafx.event.ActionEvent;
@@ -117,7 +117,7 @@ public class UrnaController {
 
     private void carregarView(String nomeArquivo){
         try {
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("/javafxViews/candidatos/" + nomeArquivo));
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("/views/monitor/" + nomeArquivo));
             paneCandidato.getChildren().add(pane);
         } catch (IOException e){ e.printStackTrace(); }
     }

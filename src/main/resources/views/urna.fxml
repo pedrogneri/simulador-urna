@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="500.0" prefWidth="1030.0" style="-fx-background-color: #d8d2c4#d8d2c4;" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxControllers.UrnaController">
+<VBox prefHeight="500.0" prefWidth="1030.0" style="-fx-background-color: #d8d2c4#d8d2c4;" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UrnaController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>

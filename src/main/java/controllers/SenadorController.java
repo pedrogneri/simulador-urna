@@ -1,6 +1,6 @@
-package javafxControllers;
+package controllers;
 
-import candidatos.Senador;
+import models.Senador;
 import javafx.scene.control.Label;
 
 public class SenadorController {
