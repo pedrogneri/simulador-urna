@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="500.0" prefWidth="1030.0" style="-fx-background-color: #d8d2c4#d8d2c4;" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UrnaController">
+<VBox prefHeight="500.0" prefWidth="1030.0" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UrnaController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -60,32 +60,32 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="444.0" prefWidth="819.0" VBox.vgrow="ALWAYS">
+    <AnchorPane id="panePrincipal" maxHeight="-1.0" maxWidth="-1.0" prefHeight="444.0" prefWidth="819.0" VBox.vgrow="ALWAYS">
       <children>
-            <Pane layoutX="661.0" prefHeight="113.0" prefWidth="327.0" style="-fx-background-color: #f2eee5#f2eee5; -fx-border-color: black;">
+            <Pane id="paneJusEleitoral" layoutX="661.0" layoutY="15.0" prefHeight="98.0" prefWidth="328.0">
                <children>
-                  <ImageView fitHeight="93.0" fitWidth="111.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="80.0" fitWidth="90.0" layoutX="14.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/brasao.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="164.0" layoutY="14.0" text="JUSTIÇA">
+                  <Label layoutX="164.0" layoutY="8.0" text="JUSTIÇA">
                      <font>
                         <Font size="32.0" />
                      </font>
                   </Label>
-                  <Label layoutX="142.0" layoutY="57.0" text="ELEITORAL">
+                  <Label layoutX="142.0" layoutY="51.0" text="ELEITORAL">
                      <font>
                         <Font size="32.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <AnchorPane layoutX="22.0" layoutY="42.0" prefHeight="360.0" prefWidth="620.0" style="-fx-background-color: #d4d4d4; -fx-border-color: black;" styleClass="paneTelaUrna">
+            <AnchorPane id="paneTelaUrna" layoutX="22.0" layoutY="42.0" prefHeight="360.0" prefWidth="620.0">
                <children>
-                  <TextField fx:id="tfVotacao" editable="false" layoutX="85.0" layoutY="73.0" mouseTransparent="true" prefHeight="55.0" prefWidth="128.0" style="-fx-background-color: #d4d4d4;">
+                  <TextField id="tfVotacao" fx:id="tfVotacao" editable="false" layoutX="85.0" layoutY="73.0" mouseTransparent="true" prefHeight="55.0" prefWidth="128.0">
                      <font>
-                        <Font size="28.0" />
+                        <Font name="System Font" size="28.0" />
                      </font>
                   </TextField>
                   <Label fx:id="lblCargo" layoutX="108.0" layoutY="38.0" prefHeight="29.0" prefWidth="245.0" text="&lt;CANDIDATO&gt;" AnchorPane.leftAnchor="110.0">
@@ -105,14 +105,14 @@
                   </Label>
                   <AnchorPane fx:id="paneTutorial" layoutX="1.0" layoutY="295.0" visible="false">
                      <children>
-                        <Separator prefHeight="2.0" prefWidth="620.0" style="-fx-background-color: black;" />
+                        <Separator id="linha" prefHeight="2.0" prefWidth="620.0" />
                         <Label layoutX="7.0" layoutY="7.0" text="Aperte a tecla:" AnchorPane.leftAnchor="1.0" />
                         <Label layoutX="45.0" layoutY="24.0" text="CONFIRMA para CONFIRMAR este voto" AnchorPane.leftAnchor="25.0" />
                         <Label layoutX="59.0" layoutY="41.0" text="CORRIGE para REINICIAR este voto" AnchorPane.leftAnchor="35.0" />
                      </children>
                   </AnchorPane>
                   <Pane fx:id="paneCandidato" layoutY="131.0" prefHeight="165.0" prefWidth="390.0" AnchorPane.leftAnchor="0.0" />
-                  <Pane fx:id="telaFim" layoutX="2.0" layoutY="2.0" prefHeight="360.0" prefWidth="620.0" style="-fx-background-color: #d4d4d4;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Pane id="telaFim" fx:id="telaFim" layoutX="2.0" layoutY="2.0" prefHeight="360.0" prefWidth="620.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Label alignment="CENTER" layoutX="115.0" layoutY="57.0" prefHeight="247.0" prefWidth="391.0" text="FIM">
                            <font>
@@ -128,27 +128,27 @@
                   </Pane>
                </children>
             </AnchorPane>
-            <Pane layoutX="661.0" layoutY="113.0" prefHeight="315.0" prefWidth="328.0" style="-fx-background-color: #36312e; -fx-border-color: black;">
+            <Pane id="paneBotoes" layoutX="661.0" layoutY="113.0" prefHeight="315.0" prefWidth="328.0">
                <children>
-                  <Button fx:id="btnBranco" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="251.0" mnemonicParsing="false" onAction="#votarBranco" prefHeight="40.0" prefWidth="90.0" styleClass="btnBranco" text="BRANCO">
+                  <Button id="btnBranco" fx:id="btnBranco" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="251.0" mnemonicParsing="false" onAction="#votarBranco" prefHeight="40.0" prefWidth="90.0" text="BRANCO">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
                         <Font size="14.0" />
                      </font></Button>
-                  <Button fx:id="btnCorrige" alignment="TOP_CENTER" cache="true" contentDisplay="CENTER" focusTraversable="false" layoutX="121.0" layoutY="251.0" mnemonicParsing="false" onAction="#corrigir" prefHeight="40.0" prefWidth="90.0" styleClass="btnCorrige" text="CORRIGE" textAlignment="CENTER">
+                  <Button id="btnCorrige" fx:id="btnCorrige" alignment="TOP_CENTER" cache="true" contentDisplay="CENTER" focusTraversable="false" layoutX="121.0" layoutY="251.0" mnemonicParsing="false" onAction="#corrigir" prefHeight="40.0" prefWidth="90.0" text="CORRIGE" textAlignment="CENTER">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
                         <Font size="14.0" />
                      </font></Button>
-                  <Button fx:id="btnConfirmar" alignment="TOP_CENTER" focusTraversable="false" layoutX="224.0" layoutY="237.0" mnemonicParsing="false" onAction="#confirmar" prefHeight="53.0" prefWidth="90.0" styleClass="btnConfirma" text="CONFIRMA">
+                  <Button id="btnConfirma" fx:id="btnConfirmar" alignment="TOP_CENTER" focusTraversable="false" layoutX="224.0" layoutY="237.0" mnemonicParsing="false" onAction="#confirmar" prefHeight="53.0" prefWidth="90.0" text="CONFIRMA">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
-                  <GridPane layoutX="34.0" prefHeight="235.0" prefWidth="265.0">
+                  <GridPane id="gpBotoes" layoutX="34.0" prefHeight="235.0" prefWidth="265.0">
                     <columnConstraints>
                       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -161,7 +161,7 @@
                         <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="80.0" valignment="CENTER" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" styleClass="btnNum" text="1" textFill="WHITE">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" text="1" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -169,7 +169,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" styleClass="btnNum" text="2" textFill="WHITE" GridPane.columnIndex="1">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" text="2" textFill="WHITE" GridPane.columnIndex="1">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -177,7 +177,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" styleClass="btnNum" text="3" textFill="WHITE" GridPane.columnIndex="2">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" text="3" textFill="WHITE" GridPane.columnIndex="2">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -185,7 +185,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" styleClass="btnNum" text="4" textFill="WHITE" GridPane.rowIndex="1">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" text="4" textFill="WHITE" GridPane.rowIndex="1">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -193,7 +193,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" styleClass="btnNum" text="5" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" text="5" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -201,7 +201,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" styleClass="btnNum" text="6" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" text="6" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -209,7 +209,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" styleClass="btnNum" text="7" textFill="WHITE" GridPane.rowIndex="2">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" text="7" textFill="WHITE" GridPane.rowIndex="2">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -217,7 +217,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" styleClass="btnNum" text="8" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" text="8" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -225,7 +225,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" styleClass="btnNum" text="9" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" text="9" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -233,7 +233,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" styleClass="btnNum" text="0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#digitarNumero" prefHeight="50.0" prefWidth="60.0" text="0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <font>
                               <Font size="24.0" />
                            </font>

@@ -1,26 +1,48 @@
-.btnNum {
-    -fx-background-color: #2d2824;
-    -fx-border-width: 3;
-    -fx-border-color: black;
-}
-
-.btnNum:pressed {
-    -fx-border-width: 2;
-}
-
-.btnConfirma {
+#btnConfirma {
     -fx-background-color: #63c373;
 }
 
-.btnCorrige {
+#btnCorrige {
     -fx-background-color: #f1974f;
 }
 
-.btnBranco {
+#btnBranco {
     -fx-background-color: #f2eee5;
 }
 
-.paneTelaUrna {
+#paneTelaUrna {
     -fx-background-color: #d4d4d4;
     -fx-border-color: black;
+}
+
+#panePrincipal {
+     -fx-background-color: #d8d2c4;
+}
+
+#paneJusEleitoral {
+    -fx-background-color: #f2eee5;
+    -fx-border-color: black;
+}
+
+#tfVotacao {
+    -fx-background-color: #d4d4d4;
+}
+
+#linha {
+    -fx-background-color: black;
+}
+
+#paneBotoes {
+    -fx-background-color: #36312e;
+    -fx-border-color: black;
+}
+
+#gpBotoes Button {
+   -fx-background-color: #2d2824;
+   -fx-border-width: 3;
+   -fx-border-color: black;
+}
+
+#gpBotoes Button:pressed {
+    -fx-border-width: 2;
 }

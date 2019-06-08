@@ -1,7 +1,5 @@
 package models;
 
-import javax.swing.*;
-
 public class Governador extends Candidato{
     private String nomeVice;
     private String partidoVice;

@@ -31,25 +31,27 @@ public class UrnaController {
     private AudioClip somFim;
     private AudioClip somVoto;
 
-    private static List<Candidato> deputados;
-    private static List<Candidato> senadores;
-    private static List<Candidato> governadores;
-    private static List<Candidato> presidentes;
+    private List<Candidato> deputados;
+    private List<Candidato> senadores;
+    private List<Candidato> governadores;
+    private List<Candidato> presidentes;
 
     static Candidato candidatoEscolhido;
+    private Gson gson;
     private List<Candidato> listaCandidatos;
     private int limiteNum;
     private String arquivoTela;
 
     @FXML
     public void initialize() {
-        deputados = new Gson().fromJson(DEPUTADO.lerArquivo(), new TypeToken<List<DeputadoEstadual>>(){}.getType());
-        senadores = new Gson().fromJson(SENADOR.lerArquivo(), new TypeToken<List<Senador>>(){}.getType());
-        governadores = new Gson().fromJson(GOVERNADOR.lerArquivo(), new TypeToken<List<Governador>>(){}.getType());
-        presidentes = new Gson().fromJson(PRESIDENTE.lerArquivo(), new TypeToken<List<Presidente>>(){}.getType());
+        gson = new Gson();
+        deputados = gson.fromJson(DEPUTADO.lerArquivo(), new TypeToken<List<DeputadoEstadual>>(){}.getType());
+        senadores = gson.fromJson(SENADOR.lerArquivo(), new TypeToken<List<Senador>>(){}.getType());
+        governadores = gson.fromJson(GOVERNADOR.lerArquivo(), new TypeToken<List<Governador>>(){}.getType());
+        presidentes = gson.fromJson(PRESIDENTE.lerArquivo(), new TypeToken<List<Presidente>>(){}.getType());
 
-        somFim = new AudioClip(getClass().getResource("../sons/som_fim.mp3").toString());
-        somVoto = new AudioClip(getClass().getResource("../sons/som_voto.mp3").toString());
+        somFim = new AudioClip(getClass().getResource("/sons/som_fim.mp3").toExternalForm());
+        somVoto = new AudioClip(getClass().getResource("/sons/som_voto.mp3").toExternalForm());
 
         alterarCargo();
     }
@@ -105,7 +107,7 @@ public class UrnaController {
             case "Presidente":
                 somFim.play();
                 telaFim.setVisible(true);
-                lblCargo.setText("FIM");
+                lblCargo.setText("");
                 break;
             default:
                 telaFim.setVisible(false);
@@ -122,14 +124,14 @@ public class UrnaController {
         } catch (IOException e){ e.printStackTrace(); }
     }
 
-    private Candidato validacaoNumero() {
+    private Candidato validarNumero() {
         int numeroDigitado = Integer.parseInt(tfVotacao.getText());
         return listaCandidatos.stream().filter(candidato -> candidato.getNumero() == numeroDigitado)
                 .findFirst().orElse(null);
     }
 
     private void procurarCandidato() {
-        candidatoEscolhido = validacaoNumero();
+        candidatoEscolhido = validarNumero();
         try{
             carregarView(candidatoEscolhido != null ? arquivoTela : "votoNulo.fxml");
         } catch (Exception e){ e.printStackTrace(); }
@@ -155,10 +157,10 @@ public class UrnaController {
     }
 
     private void atualizarArquivosJSON() {
-        DEPUTADO.atualizarArquivo(new Gson().toJson(deputados));
-        SENADOR.atualizarArquivo(new Gson().toJson(senadores));
-        GOVERNADOR.atualizarArquivo(new Gson().toJson(governadores));
-        PRESIDENTE.atualizarArquivo(new Gson().toJson(presidentes));
+        DEPUTADO.atualizarArquivo(gson.toJson(deputados));
+        SENADOR.atualizarArquivo(gson.toJson(senadores));
+        GOVERNADOR.atualizarArquivo(gson.toJson(governadores));
+        PRESIDENTE.atualizarArquivo(gson.toJson(presidentes));
     }
 }
 
