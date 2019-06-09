@@ -15,7 +15,7 @@ import javafx.scene.media.AudioClip;
 import java.io.IOException;
 import java.util.List;
 
-import static apllication.ArquivosJson.*;
+import static application.ArquivosJson.*;
 
 public class UrnaController {
     public Button btnConfirmar;
@@ -119,7 +119,7 @@ public class UrnaController {
 
     private void carregarView(String nomeArquivo){
         try {
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("/views/monitor/" + nomeArquivo));
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("/views/urna/monitor/" + nomeArquivo));
             paneCandidato.getChildren().add(pane);
         } catch (IOException e){ e.printStackTrace(); }
     }

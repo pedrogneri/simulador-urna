@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="500.0" prefWidth="1030.0" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UrnaController">
+<VBox prefHeight="500.0" prefWidth="1030.0" stylesheets="@../../css/styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UrnaController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -66,7 +66,7 @@
                <children>
                   <ImageView fitHeight="80.0" fitWidth="90.0" layoutX="14.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/brasao.png" />
+                        <Image url="@../../img/brasao.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="164.0" layoutY="8.0" text="JUSTIÇA">

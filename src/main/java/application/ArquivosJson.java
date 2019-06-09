@@ -1,4 +1,4 @@
-package apllication;
+package application;
 
 import java.io.*;
 
@@ -14,7 +14,7 @@ public enum ArquivosJson {
     }
 
     private String getPath(){
-        return "./src/JsonFiles/" + path;
+        return "./JsonFiles/" + path;
     }
 
     public String lerArquivo() {

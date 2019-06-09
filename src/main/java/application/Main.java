@@ -1,4 +1,4 @@
-package apllication;
+package application;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/views/urna.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/views/urna/urna.fxml"));
 
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/css/styles.css").toExternalForm());
