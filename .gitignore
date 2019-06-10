@@ -1,7 +1,6 @@
 # IntelliJ IDEA
 out/
 *.iml
-.idea/
 
 # Mac e Windows
 .DS_Store
